@@ -85,9 +85,13 @@ const FormProvider = ({ children }: { children: React.ReactNode }) => {
     }
   };
 
-  const handleToggleTheme = () => {};
+  const handleToggleTheme = () => {
+    setTheme((prev) => (prev === "light" ? "dark" : "light"));
+  };
 
-  const handleToggleVersion = () => {};
+  const handleToggleVersion = () => {
+    setVersion((prev) => (prev === "beta" ? "stable" : "beta"));
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

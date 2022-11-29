@@ -47,4 +47,41 @@
       margin-top: 4px;
     }
   }
+
+  &__switches {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-top: 1rem;
+  }
+}
+
+@include abs.screen-md {
+  .form {
+    &__input-column {
+      &:not(:last-child) {
+        padding-right: 1.5rem;
+      }
+    }
+
+    &__title-and-submit {
+      margin-left: 60px;
+    }
+
+    &__switches-and-submit {
+      flex-direction: row;
+    }
+
+    &__row {
+      &--top {
+        padding-top: 1rem;
+      }
+    }
+
+    &__switches {
+      flex-direction: row;
+      position: relative;
+      bottom: 1rem; 
+    }
+  }
 }
