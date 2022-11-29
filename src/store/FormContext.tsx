@@ -64,9 +64,15 @@ const FormProvider = ({ children }: { children: React.ReactNode }) => {
   const [avatarImage, setAvatarImage] = useState<string>(DEFAULT_AVATAR_IMAGE);
   const [saving, setSaving] = useState(false);
 
-  const handleChangeInputValue = (e: InputChangeEvent) => {};
+  const handleChangeInputValue = (e: InputChangeEvent) => {
+    const { value, name } = e.target;
+    setInputValues({ ...inputValues, [`${name}`]: value });
+  };
 
-  const handleChangeSelectValue = (e: SelectChangeEvent) => {};
+  const handleChangeSelectValue = (e: SelectChangeEvent) => {
+    const { value, name } = e.target;
+    setInputValues({ ...inputValues, [`${name}`]: value });
+  };
 
   const handleChangeAlertTypes = (value: Alert) => {};
 
