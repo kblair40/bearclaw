@@ -1,0 +1,44 @@
+@use "./abstracts/" as abs;
+
+:root {
+    font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+  
+    color: abs.$color-text;
+    background-color: abs.$color-bg-body;
+  
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    min-width: 340px;
+    min-height: 100vh;
+  }
+  
+  p,
+  h1 {
+    margin: 0;
+  }
+  
+  button {
+    border: none;
+    cursor: pointer;
+  }
+  
+  #root {
+    padding: 2rem;
+  }
+  
+  .app {
+    margin: 0 auto;
+  }
