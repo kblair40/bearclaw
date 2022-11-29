@@ -1,0 +1,13 @@
+@use "abstracts" as abs;
+
+@mixin form-label {
+  color: abs.$color-green;
+  margin-bottom: 4px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+@mixin flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
