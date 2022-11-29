@@ -1,0 +1,21 @@
+@use "../abstracts/" as abs;
+
+.chip {
+  border: 1px solid #ccc;
+  padding: 4px 12px;
+  margin: 0 8px 12px 0;
+  white-space: nowrap;
+  border-radius: 2px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: capitalize;
+
+  &--selected {
+    background-color: abs.$color-bg-chip-selected;
+    border-color: abs.$color-bg-chip-selected;
+  }
+}
