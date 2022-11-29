@@ -1,0 +1,24 @@
+@use "../mixins";
+@use "../abstracts/" as abs;
+
+.alert-chips {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+
+  &__chips-container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@include abs.screen-md {
+  .alert-chips {
+    margin-top: 0;
+
+    &__chips-container {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+}
