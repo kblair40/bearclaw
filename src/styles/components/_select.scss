@@ -1,0 +1,30 @@
+@use "../abstracts/" as abs;
+@use "../mixins";
+
+.select {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  
+
+  & select {
+    appearance: none;
+    width: 100%;
+    background-color: abs.$color-bg-input;
+    border: none;
+    height: 28px;
+    color: white;
+    padding-left: 1rem;
+    border-radius: 4px;
+    font-size: 14px;
+    padding: 0 8px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  & label {
+    @include mixins.form-label
+  }
+}

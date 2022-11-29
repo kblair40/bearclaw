@@ -1,0 +1,32 @@
+@use "../abstracts/" as abs;
+@use "../mixins";
+
+.input {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+
+  & input {
+    width: 100%;
+    background-color: abs.$color-bg-input;
+    border: none;
+    height: 28px;
+    color: white;
+    padding-left: 1rem;
+    border-radius: 4px;
+    font-size: 16px;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:-webkit-autofill {
+      background-color: abs.$color-bg-input;
+    }
+  }
+
+  & label {
+    @include mixins.form-label;
+  }
+}
