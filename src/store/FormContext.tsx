@@ -114,7 +114,7 @@ const FormProvider = ({ children }: { children: React.ReactNode }) => {
   ) => {
     if (!e.target.files) return;
 
-    const files = Array.from(e.target.files);
+    const files = Array.from(e.target.files); // Convert FileList to Array
     const imageUrl = await getImageURL(files[0]);
 
     if (imageUrl) {
@@ -134,12 +134,45 @@ const FormProvider = ({ children }: { children: React.ReactNode }) => {
     e.preventDefault();
     setSaving(true); // causes loading indicator to show up under submit button.
 
-    // stuff
-    // stuff
-    // stuff
-    // stuff
+    const formData = {
+      ...inputValues,
+      theme,
+      version,
+      alertTypes,
+      deliveryMethods,
+    };
+    console.log("FORM DATA:", formData);
+    console.log("STRING DATA:", JSON.stringify(formData));
 
-    setSaving(false);
+    /*  Validation should happen here.  I typically write a separate function that receives formData, validates
+        each field based on whatever the validation rules are, then either returns true or
+        an object where each key is the field that had an error and each key's value would be the error message
+        to show under that input.
+
+        Assuming all validation is passed, we can submit it.  
+        Keys in the formData object would probably need to be changed to match what the api expects. 
+    */
+
+    try {
+      // I typically use axios, but I'm pretty sure this is right using fetch.
+      // Adding a library for a single api call seems like overkill
+      const rawResponse = await fetch(API_URL, {
+        method: "POST",
+        body: JSON.stringify(formData),
+        headers: { "Content-Type": "application/json" },
+      });
+
+      const response = await rawResponse.json();
+      // Could trigger some kind of success/error toast here depending on response
+    } catch (e) {
+      console.log("ERROR:", e);
+    }
+
+    // setTimeout is just to simulate "awaiting" the response.
+    // Remove it if you replace VITE_API_URL in .env with a working URL.
+    setTimeout(() => {
+      setSaving(false);
+    }, 1000);
   };
 
   return (

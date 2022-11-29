@@ -16,7 +16,7 @@ const Form = () => {
     useContext(FormContext);
 
   return (
-    <form className="form" onSubmit={onSubmit}>
+    <form className="form" onSubmit={onSubmit} action="">
       <LinkedinConnection connectionActive={false} />
 
       <div className="form__row form__row--top">
