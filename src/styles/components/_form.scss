@@ -48,6 +48,20 @@
     }
   }
 
+  &__input-column {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    & input {
+      width: 100%;
+    }
+
+    &--1 {
+      margin-bottom: 1rem;
+    }
+  }
+
   &__switches {
     display: flex;
     flex-direction: column;
@@ -62,6 +76,10 @@
       &:not(:last-child) {
         padding-right: 1.5rem;
       }
+
+      &--1 {
+        margin-bottom: 0;
+      }
     }
 
     &__title-and-submit {
@@ -73,6 +91,9 @@
     }
 
     &__row {
+      &--bottom {
+        flex-direction: row;
+      }
       &--top {
         padding-top: 1rem;
       }
@@ -81,7 +102,27 @@
     &__switches {
       flex-direction: row;
       position: relative;
-      bottom: 1rem; 
+      bottom: 1rem;
+    }
+  }
+}
+
+@include abs.screen-lg {
+  .form {
+    &__input-column {
+      &:not(:last-child) {
+        padding-right: 2rem;
+      }
+    }
+
+    &__row {
+      &--top {
+        padding-top: 0;
+      }
+    }
+
+    &__title-and-submit {
+      margin-left: 100px;
     }
   }
 }
