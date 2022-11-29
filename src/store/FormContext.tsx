@@ -115,3 +115,5 @@ const FormProvider = ({ children }: { children: React.ReactNode }) => {
     </FormContext.Provider>
   );
 };
+
+export default FormProvider;
