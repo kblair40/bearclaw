@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+import { getImageURL } from "../utils/helpers";
 import { FORM_INPUTS } from "../utils/constants";
 
 interface InputValues {
@@ -73,7 +74,16 @@ const FormProvider = ({ children }: { children: React.ReactNode }) => {
 
   const handleChangeAvatarImage = async (
     e: React.ChangeEvent<HTMLInputElement>
-  ) => {};
+  ) => {
+    if (!e.target.files) return;
+
+    const files = Array.from(e.target.files);
+    const imageUrl = await getImageURL(files[0]);
+
+    if (imageUrl) {
+      setAvatarImage(imageUrl);
+    }
+  };
 
   const handleToggleTheme = () => {};
 
