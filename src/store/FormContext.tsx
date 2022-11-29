@@ -74,9 +74,40 @@ const FormProvider = ({ children }: { children: React.ReactNode }) => {
     setInputValues({ ...inputValues, [`${name}`]: value });
   };
 
-  const handleChangeAlertTypes = (value: Alert) => {};
+  const handleChangeAlertTypes = (value: Alert) => {
+    let alertsCopy = [...alertTypes];
 
-  const handleChangeDeliveryMethods = (value: DeliveryMethod) => {};
+    if (alertsCopy.includes(value)) {
+      // It's already in alertTypes array, so we need to remove it
+      const valIndex = alertsCopy.findIndex((alert) => alert === value);
+      if (valIndex !== -1) {
+        alertsCopy.splice(valIndex, 1);
+        setAlertTypes(alertsCopy);
+      }
+    } else {
+      // Not in array yet.  Add it
+      alertsCopy.push(value);
+      setAlertTypes(alertsCopy);
+    }
+  };
+
+  const handleChangeDeliveryMethods = (value: DeliveryMethod) => {
+    // same logic as handleChangeAlertTypes above, but for deliveryMethods
+    let deliveryMethodsCopy = [...deliveryMethods];
+
+    if (deliveryMethodsCopy.includes(value)) {
+      const valIndex = deliveryMethodsCopy.findIndex(
+        (alert) => alert === value
+      );
+      if (valIndex !== -1) {
+        deliveryMethodsCopy.splice(valIndex, 1);
+        setDeliveryMethods(deliveryMethodsCopy);
+      }
+    } else {
+      deliveryMethodsCopy.push(value);
+      setDeliveryMethods(deliveryMethodsCopy);
+    }
+  };
 
   const handleChangeAvatarImage = async (
     e: React.ChangeEvent<HTMLInputElement>

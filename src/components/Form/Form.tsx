@@ -8,6 +8,8 @@ import Switch from "../Switch";
 import Stack from "../Stack";
 import Select from "../Select";
 import Input from "../Input";
+import AlertTypeChips from "../AlertTypeChips";
+import DeliveryMethodChips from "../DeliveryMethodChips";
 
 const Form = () => {
   const { saving, theme, version, onToggleTheme, onToggleVersion, onSubmit } =
@@ -51,7 +53,10 @@ const Form = () => {
         <InputColumn colNumber={1} />
         <InputColumn colNumber={2} />
 
-        <div className="form__input-column"></div>
+        <div className="form__input-column">
+          <AlertTypeChips />
+          <DeliveryMethodChips />
+        </div>
       </div>
     </form>
   );
