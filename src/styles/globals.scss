@@ -1,5 +1,6 @@
 @use "./abstracts/" as abs;
 @use "components";
+@use "mixins";
 
 
 :root {
@@ -43,4 +44,9 @@
   
   .app {
     margin: 0 auto;
+  }
+
+  .label {
+    @include mixins.form-label;
+    margin-bottom: 6px;
   }
