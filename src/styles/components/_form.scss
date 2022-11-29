@@ -1,7 +1,50 @@
+@use "../abstracts/" as abs;
+
 .form {
   height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
   position: relative;
+
+  &__row {
+    // common to both rows
+    display: flex;
+    width: 100%;
+    &--top {
+      padding: 4rem 0 2rem 0;
+    }
+    &--bottom {
+      flex-direction: column;
+    }
+  }
+
+  &__switches-and-submit {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title-and-submit {
+    display: flex;
+    flex-direction: column;
+    margin-left: 28px;
+
+    & h1 {
+      font-size: 26px;
+      margin-bottom: 8px;
+    }
+
+    & button {
+      background-color: abs.$color-green;
+      border-radius: 4px;
+      font-size: 14px;
+      padding: 6px 10px;
+    }
+
+    & p {
+      text-align: center;
+      font-size: 12px;
+      margin-top: 4px;
+    }
+  }
 }
