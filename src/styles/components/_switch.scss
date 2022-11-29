@@ -1,0 +1,59 @@
+@use "../abstracts/" as abs;
+
+.switch {
+  margin-left: 2rem;
+  display: flex;
+  align-items: center;
+  padding-bottom: 1rem;
+
+  & p {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    // so switches line up when stacked vertically.  removed at md breakpoint
+    width: 50px;
+  }
+
+  & input {
+    display: none;
+    &:checked + label {
+      &::after {
+        left: 22px;
+      }
+    }
+  }
+
+  & label {
+    position: relative;
+    display: inline-block;
+    width: 42px;
+    height: 24px;
+    background-color: abs.$color-bg-input;
+    border-radius: 20px;
+    cursor: pointer;
+    margin: 0 8px;
+
+    &::after {
+      // Creates the switch 'thumb' (circle that moves left and right on click)
+      content: "";
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background-color: abs.$color-green;
+      top: 3px;
+      left: 2px;
+      transition: all 0.3s;
+    }
+  }
+}
+
+@include abs.screen-md {
+  .switch {
+    padding-bottom: 0;
+
+    & p {
+      width: unset;
+    }
+  }
+}
